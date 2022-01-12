@@ -9,7 +9,7 @@ public:
         }
         for (unsigned i = 0; i < nums.size(); ++i) {
             temp = target - nums.at(i);
-            if (map1.count(temp) > 0) {
+            if (map1.count(temp) > 0 && map1[temp] != i) {
                 ans.push_back(i);
                 ans.push_back(map1[temp]);
                 return ans;
