@@ -1,20 +1,18 @@
 class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
-        vector<int> ans;
-        unordered_map<int, int> map1;
-        int temp(0);
-        for (unsigned i = 0; i < nums.size(); ++i) {
-            map1.insert(pair<int, int>(nums.at(i), i));
-        }
-        for (unsigned i = 0; i < nums.size(); ++i) {
-            temp = target - nums.at(i);
-            if (map1.count(temp) > 0 && map1[temp] != i) {
-                ans.push_back(i);
-                ans.push_back(map1[temp]);
-                return ans;
+        vector<int> solution;
+        for (int i = 0; i < nums.size(); ++i) {
+            for (int j = 0; j < nums.size(); ++j) {
+                if (i != j) {
+                    if (nums.at(i) + nums.at(j) == target) {
+                        solution.push_back(i);
+                        solution.push_back(j);
+                        return solution;
+                    }
+                }
             }
         }
-        return ans;
+        return solution;
     }
 };
